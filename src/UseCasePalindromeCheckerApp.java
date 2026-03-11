@@ -1,20 +1,28 @@
+import java.util.*;
+
 public class UseCasePalindromeCheckerApp {
+
     public static void main(String[] args) {
-        String input = "madam";
+
+        Scanner S = new Scanner(System.in);
+        System.out.print("Input : ");
+        String input = S.nextLine();
+
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
         boolean isPalindrome = true;
 
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+        for (int i = 0; i < normalized.length() / 2; i++) {
+
+            if (normalized.charAt(i) !=
+                    normalized.charAt(normalized.length() - 1 - i)) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        System.out.println("Input String: " + input);
-        if (isPalindrome) {
-            System.out.println("Result: The string is a palindrome.");
-        } else {
-            System.out.println("Result: The string is NOT a palindrome.");
-        }
+        System.out.println("Is Palindrome? : " + isPalindrome);
+
+        S.close();
     }
 }
